@@ -21,12 +21,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "husky": {
-    "pre-push": "CI=true yarn test",
-    "pre-commit": "lint-staged"
-  },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint"
+    "*.{js,jsx,ts,tsx}": ["eslint --fix", "git add"]
   },
   "browserslist": {
     "production": [
