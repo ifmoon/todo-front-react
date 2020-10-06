@@ -22,7 +22,7 @@
     "eject": "react-scripts eject"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": ["eslint --fix", "git add"]
+    "*.{js,jsx,ts,tsx}": ["eslint", "git add"]
   },
   "browserslist": {
     "production": [
