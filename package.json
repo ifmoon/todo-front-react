@@ -22,7 +22,7 @@
     "eject": "react-scripts eject"
   },
   "husky": {
-    "pre-push": "CI=true npm test",
+    "pre-push": "CI=true yarn test",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
