@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
-  plugins: ['simple-import-sort'],
+  plugins: ['import','simple-import-sort'],
   rules: {
     'padding-line-between-statements': [
       'error',
@@ -20,6 +20,7 @@ module.exports = {
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
+    'import/no-unresolved': "error"
   },
   env: {
     jest: true,
@@ -27,6 +28,12 @@ module.exports = {
     browser: true,
   },
   settings: {
-    'import/resolver': { node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] } },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    'import/resolver': { node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },  
+    "typescript": {
+      "alwaysTryTypes": true 
+    }},
   },
 };

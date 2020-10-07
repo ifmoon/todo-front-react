@@ -16,10 +16,10 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint"
@@ -37,8 +37,10 @@
     ]
   },
   "devDependencies": {
+    "craco": "^0.0.3",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-prettier": "^6.12.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jsx-a11y": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.4",
