@@ -7,4 +7,4 @@ export default {
   component: TaskAddButton,
 };
 
-export const basic = () => <TaskAddButton />;
+export const basic = () => <TaskAddButton onClick={() => {}} />;

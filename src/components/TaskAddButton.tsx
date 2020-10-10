@@ -2,9 +2,9 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 
-const TaskAddButton: React.FC = () => {
+const TaskAddButton = ({ onClick }: { onClick: () => void }) => {
   return (
-    <Button block>
+    <Button block onClick={onClick}>
       <PlusOutlined />
       Add a Task...
     </Button>

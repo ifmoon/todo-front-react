@@ -1,4 +1,4 @@
-import { Col, Divider, Row, Space } from 'antd';
+import { Col, Row } from 'antd';
 import React from 'react';
 
 import { Todo } from '@/types';
@@ -10,19 +10,17 @@ import TaskText from './TaskText';
 const Task = ({ isCompleted, text }: Pick<Todo, 'isCompleted' | 'text'>) => {
   return (
     <>
-      <Divider />
-      <Row justify="space-between">
-        <Col span={20}>
-          <Space size="middle" align="center">
-            <TaskCompleteButton isCompleted={isCompleted} onClick={() => {}} />
-            <TaskText text={text} isCompleted={isCompleted} />
-          </Space>
+      <Row justify="space-around" align="middle">
+        <Col span={2} offset={1}>
+          <TaskCompleteButton isCompleted={isCompleted} onClick={() => {}} />
         </Col>
-        <Col span={2} offset={2}>
+        <Col span={18}>
+          <TaskText text={text} isCompleted={isCompleted} />
+        </Col>
+        <Col span={2} offset={1}>
           <TaskDeleteButton />
         </Col>
       </Row>
-      <Divider />
     </>
   );
 };
