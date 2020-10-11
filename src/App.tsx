@@ -1,10 +1,11 @@
 import { Layout, Typography } from 'antd';
 import React from 'react';
 
-import TaskAddContainer from './containers/TaskAddContainer';
+import { TaskAddContainer, TaskListContainer } from '@/containers';
 
 const { Title } = Typography;
 const { Header, Footer, Content } = Layout;
+
 const App = () => {
   return (
     <Layout style={{ backgroundColor: '#fff' }}>
@@ -19,7 +20,9 @@ const App = () => {
           To Do List
         </Title>
       </Header>
-      <Content style={{ margin: '64px 0px 80px 0px' }} />
+      <Content style={{ margin: '64px 0px 80px 0px' }}>
+        <TaskListContainer />
+      </Content>
       <Footer
         style={{
           position: 'fixed',

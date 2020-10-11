@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import TaskAddButton from '@/components/TaskAddButton';
-import TaskAddModal from '@/components/TaskAddModal';
+import { TaskAddButton, TaskAddModal } from '@/components';
 
 const TaskAddContainer = () => {
   const [active, setActive] = useState(false);
