@@ -1,21 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { TaskAddButton, TaskAddModal } from '@/components';
+import useModal from '@/hooks/useModal';
 
 const TaskAddContainer = () => {
-  const [active, setActive] = useState(false);
-
-  const turnOnModal = () => {
-    setActive(true);
-  };
-
-  const handleOk = () => {
-    setActive(false);
-  };
-
-  const handleClose = () => {
-    setActive(false);
-  };
+  const { active, handleClose, handleOk, turnOnModal } = useModal({
+    handleOkCallback: () => {},
+  });
 
   return (
     <>
