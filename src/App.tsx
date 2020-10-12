@@ -1,12 +1,29 @@
-import { Layout, Typography } from 'antd';
-import React from 'react';
+import { Input, Layout, Modal, Typography } from 'antd';
+import React, { useState } from 'react';
 
-import { TaskAddContainer, TaskListContainer } from '@/containers';
+import { TaskAddButton, TaskList } from './components';
+import useModal from './hooks/useModal';
+import useTasks from './hooks/useTasks';
 
 const { Title } = Typography;
 const { Header, Footer, Content } = Layout;
 
 const App = () => {
+  const [value, setValue] = useState('');
+  const { tasks, addTask, deleteTask, toggleTaskCompleted } = useTasks();
+  const { active, handleClose, handleOk, turnOnModal } = useModal({
+    handleOkCallback: () => {
+      addTask(value);
+      setValue('');
+    },
+    handleCloseCallback: () => {
+      setValue('');
+    },
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setValue(e.target.value);
+
   return (
     <Layout style={{ backgroundColor: '#fff' }}>
       <Header
@@ -21,7 +38,11 @@ const App = () => {
         </Title>
       </Header>
       <Content style={{ margin: '64px 0px 80px 0px' }}>
-        <TaskListContainer />
+        <TaskList
+          tasks={tasks}
+          toggleTaskCompleted={toggleTaskCompleted}
+          deleteTask={deleteTask}
+        />
       </Content>
       <Footer
         style={{
@@ -32,7 +53,19 @@ const App = () => {
           bottom: 0,
         }}
       >
-        <TaskAddContainer />
+        <TaskAddButton onClick={turnOnModal} />
+        <Modal
+          title="할 일 추가"
+          visible={active}
+          onOk={handleOk}
+          onCancel={handleClose}
+        >
+          <Input
+            value={value}
+            onChange={handleInputChange}
+            placeholder="할 일 목록"
+          />
+        </Modal>
       </Footer>
     </Layout>
   );

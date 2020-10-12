@@ -8,5 +8,19 @@ export default {
 };
 const text = '할 일 목록 1';
 
-export const basic = () => <Task isCompleted={false} text={text} />;
-export const isCompleted = () => <Task isCompleted text={text} />;
+export const basic = () => (
+  <Task
+    isCompleted={false}
+    text={text}
+    toggleTaskCompleted={() => {}}
+    deleteTask={() => {}}
+  />
+);
+export const isCompleted = () => (
+  <Task
+    isCompleted
+    text={text}
+    toggleTaskCompleted={() => {}}
+    deleteTask={() => {}}
+  />
+);

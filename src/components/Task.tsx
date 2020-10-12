@@ -7,18 +7,29 @@ import TaskCompleteButton from './TaskCompleteButton';
 import TaskDeleteButton from './TaskDeleteButton';
 import TaskText from './TaskText';
 
-const Task = ({ isCompleted, text }: Pick<Todo, 'isCompleted' | 'text'>) => {
+const Task = ({
+  isCompleted,
+  text,
+  toggleTaskCompleted,
+  deleteTask,
+}: Pick<Todo, 'isCompleted' | 'text'> & {
+  toggleTaskCompleted: () => void;
+  deleteTask: () => void;
+}) => {
   return (
     <>
       <Row justify="space-around" align="middle">
         <Col span={2} offset={1}>
-          <TaskCompleteButton isCompleted={isCompleted} onClick={() => {}} />
+          <TaskCompleteButton
+            isCompleted={isCompleted}
+            onClick={toggleTaskCompleted}
+          />
         </Col>
         <Col span={18}>
           <TaskText text={text} isCompleted={isCompleted} />
         </Col>
         <Col span={2} offset={1}>
-          <TaskDeleteButton />
+          <TaskDeleteButton onClick={deleteTask} />
         </Col>
       </Row>
     </>

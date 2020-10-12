@@ -2,9 +2,10 @@ import { useState } from 'react';
 
 type UseModalProps = {
   handleOkCallback?: () => void;
+  handleCloseCallback?: () => void;
 };
 
-const useModal = ({ handleOkCallback }: UseModalProps) => {
+const useModal = ({ handleOkCallback, handleCloseCallback }: UseModalProps) => {
   const [active, setActive] = useState(false);
 
   const turnOnModal = () => {
@@ -19,6 +20,9 @@ const useModal = ({ handleOkCallback }: UseModalProps) => {
   };
 
   const handleClose = () => {
+    if (handleCloseCallback) {
+      handleCloseCallback();
+    }
     setActive(false);
   };
 

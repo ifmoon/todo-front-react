@@ -7,4 +7,4 @@ export default {
   component: TaskDeleteButton,
 };
 
-export const basic = () => <TaskDeleteButton />;
+export const basic = () => <TaskDeleteButton onClick={() => {}} />;

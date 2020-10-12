@@ -6,10 +6,10 @@ const TaskDeleteButtonStyle = {
   color: '#a62c00',
 };
 
-const TaskDeleteButton: React.FC = () => {
+const TaskDeleteButton = ({ onClick }: { onClick: () => void }) => {
   return (
     <Button shape="circle" type="text">
-      <CloseOutlined style={TaskDeleteButtonStyle} />
+      <CloseOutlined style={TaskDeleteButtonStyle} onClick={onClick} />
     </Button>
   );
 };
