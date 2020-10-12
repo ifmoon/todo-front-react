@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 type UseModalProps = {
-  handleOkCallback: () => void;
+  handleOkCallback?: () => void;
 };
 
 const useModal = ({ handleOkCallback }: UseModalProps) => {
@@ -12,7 +12,9 @@ const useModal = ({ handleOkCallback }: UseModalProps) => {
   };
 
   const handleOk = () => {
-    handleOkCallback();
+    if (handleOkCallback) {
+      handleOkCallback();
+    }
     setActive(false);
   };
 
