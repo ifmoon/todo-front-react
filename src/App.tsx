@@ -1,9 +1,8 @@
 import { Input, Layout, Modal, Typography } from 'antd';
 import React, { useState } from 'react';
 
-import { TaskAddButton, TaskList } from './components';
-import useModal from './hooks/useModal';
-import useTasks from './hooks/useTasks';
+import { TaskAddButton, TaskList } from '@/components';
+import { useModal, useTasks } from '@/hooks';
 
 const { Title } = Typography;
 const { Header, Footer, Content } = Layout;
