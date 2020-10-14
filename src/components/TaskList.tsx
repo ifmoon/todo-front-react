@@ -1,26 +1,20 @@
 import { Divider } from 'antd';
 import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 
-import { UseTasksType } from '@/hooks/useTasks';
+import { selectTasks } from '@/features/tasks';
 
 import Task from './Task';
 
-const TaskList = ({
-  tasks,
-  deleteTask,
-  toggleTaskCompleted,
-}: Omit<UseTasksType, 'addTask'>) => {
+const TaskList = () => {
+  const tasks = useSelector(selectTasks);
+
   return (
     <>
-      {tasks.map(({ id, isCompleted, text }, index) => (
-        <Fragment key={id}>
+      {tasks.map((task, index) => (
+        <Fragment key={task.id}>
           {index === 0 && <Divider />}
-          <Task
-            isCompleted={isCompleted}
-            text={text}
-            toggleTaskCompleted={() => toggleTaskCompleted(id)}
-            deleteTask={() => deleteTask(id)}
-          />
+          <Task task={task} />
           <Divider />
         </Fragment>
       ))}

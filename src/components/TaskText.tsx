@@ -1,7 +1,7 @@
 import { Typography } from 'antd';
 import React from 'react';
 
-import { Todo } from '@/types';
+import { Todo } from '@/features/tasks';
 
 const { Text } = Typography;
 const TaskText = ({

@@ -1,35 +1,36 @@
 import { Col, Row } from 'antd';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import { Todo } from '@/types';
+import { deleteTasks, Todo, toggleTaskCompleted } from '@/features/tasks';
 
 import TaskCompleteButton from './TaskCompleteButton';
 import TaskDeleteButton from './TaskDeleteButton';
 import TaskText from './TaskText';
 
-const Task = ({
-  isCompleted,
-  text,
-  toggleTaskCompleted,
-  deleteTask,
-}: Pick<Todo, 'isCompleted' | 'text'> & {
-  toggleTaskCompleted: () => void;
-  deleteTask: () => void;
-}) => {
+const Task = ({ task }: { task: Todo }) => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <Row justify="space-around" align="middle">
         <Col span={2} offset={1}>
           <TaskCompleteButton
-            isCompleted={isCompleted}
-            onClick={toggleTaskCompleted}
+            isCompleted={task.isCompleted}
+            onClick={() => {
+              dispatch(toggleTaskCompleted(task.id));
+            }}
           />
         </Col>
         <Col span={18}>
-          <TaskText text={text} isCompleted={isCompleted} />
+          <TaskText text={task.text} isCompleted={task.isCompleted} />
         </Col>
         <Col span={2} offset={1}>
-          <TaskDeleteButton onClick={deleteTask} />
+          <TaskDeleteButton
+            onClick={() => {
+              dispatch(deleteTasks(task.id));
+            }}
+          />
         </Col>
       </Row>
     </>

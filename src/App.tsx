@@ -1,18 +1,21 @@
 import { Input, Layout, Modal, Typography } from 'antd';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { TaskAddButton, TaskList } from '@/components';
-import { useModal, useTasks } from '@/hooks';
+import useModal from '@/hooks/useModal';
+
+import { addTasks } from './features/tasks';
 
 const { Title } = Typography;
 const { Header, Footer, Content } = Layout;
 
 const App = () => {
   const [value, setValue] = useState('');
-  const { tasks, addTask, deleteTask, toggleTaskCompleted } = useTasks();
+  const dispatch = useDispatch();
   const { active, handleClose, handleOk, turnOnModal } = useModal({
     handleOkCallback: () => {
-      addTask(value);
+      dispatch(addTasks(value));
       setValue('');
     },
     handleCloseCallback: () => {
@@ -37,11 +40,7 @@ const App = () => {
         </Title>
       </Header>
       <Content style={{ margin: '64px 0px 80px 0px' }}>
-        <TaskList
-          tasks={tasks}
-          toggleTaskCompleted={toggleTaskCompleted}
-          deleteTask={deleteTask}
-        />
+        <TaskList />
       </Content>
       <Footer
         style={{
