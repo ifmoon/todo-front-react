@@ -1,4 +1,4 @@
-import { Layout, Typography } from 'antd';
+import { Layout, Modal, Typography } from 'antd';
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -39,7 +39,6 @@ const App = () => {
           bottom: 0,
         }}
       >
-        <TaskInput ref={valueRef} />
         <TaskAddButton
           onClick={() => {
             if (valueRef?.current) {
@@ -47,6 +46,9 @@ const App = () => {
             }
           }}
         />
+        <Modal>
+          <TaskInput ref={valueRef} />
+        </Modal>
       </Footer>
     </Layout>
   );
