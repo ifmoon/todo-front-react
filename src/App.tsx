@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { TaskAddButton, TaskList } from '@/components';
 
 import TaskInput, { TaskInputRef } from './components/TaskInput';
-import { addTasks } from './features/tasks';
+import { addTasks } from './features/task';
 
 const { Title } = Typography;
 const { Header, Footer, Content } = Layout;

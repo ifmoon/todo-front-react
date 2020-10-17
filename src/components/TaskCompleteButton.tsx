@@ -2,7 +2,7 @@ import { CheckOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 
-import { Todo } from '@/features/tasks';
+import { Todo } from '@/features/task';
 
 const TaskCompleteButton = ({
   isCompleted,

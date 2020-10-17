@@ -2,7 +2,7 @@ import { Divider } from 'antd';
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 
-import { selectTasks } from '@/features/tasks';
+import { selectTasks } from '@/features/task';
 
 import Task from './Task';
 

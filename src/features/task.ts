@@ -9,7 +9,7 @@ export type Todo = {
 };
 
 const name = 'tasks';
-const initialState: Todo[] = [];
+export const initialState: Todo[] = [];
 
 const slice = createSlice({
   name,
@@ -32,6 +32,6 @@ const slice = createSlice({
 });
 
 export const { addTasks, deleteTasks, toggleTaskCompleted } = slice.actions;
-export const selectTasks = (state: RootState) => state.tasks;
+export const selectTasks = (state: RootState) => state.task;
 
 export default slice.reducer;

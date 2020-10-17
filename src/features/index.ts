@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import tasksReducer from './tasks';
+import tasksReducer from './task';
 
-const rootReducer = combineReducers({ tasks: tasksReducer });
+const rootReducer = combineReducers({ task: tasksReducer });
 
 const store = configureStore({
   reducer: rootReducer,

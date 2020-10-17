@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { deleteTasks, Todo, toggleTaskCompleted } from '@/features/tasks';
+import { deleteTasks, Todo, toggleTaskCompleted } from '@/features/task';
 
 import TaskCompleteButton from './TaskCompleteButton';
 import TaskDeleteButton from './TaskDeleteButton';
