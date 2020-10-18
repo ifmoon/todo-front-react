@@ -4,6 +4,7 @@ import React from 'react';
 import { Todo } from '@/features/task';
 
 const { Text } = Typography;
+
 const TaskText = ({
   isCompleted,
   text,

@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { deleteTasks, Todo, toggleTaskCompleted } from '@/features/task';
+import { deleteTask, Todo, toggleTaskCompleted } from '@/features/task';
 
 import TaskCompleteButton from './TaskCompleteButton';
 import TaskDeleteButton from './TaskDeleteButton';
@@ -28,7 +28,7 @@ const Task = ({ task }: { task: Todo }) => {
         <Col span={2} offset={1}>
           <TaskDeleteButton
             onClick={() => {
-              dispatch(deleteTasks(task.id));
+              dispatch(deleteTask(task.id));
             }}
           />
         </Col>

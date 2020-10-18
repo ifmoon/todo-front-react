@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { TaskAddButton, TaskList } from '@/components';
 
 import TaskInput, { TaskInputRef } from './components/TaskInput';
-import { addTasks } from './features/task';
+import { addTask } from './features/task';
 
 const { Title } = Typography;
 const { Header, Footer, Content } = Layout;
@@ -42,7 +42,7 @@ const App = () => {
         <TaskAddButton
           onClick={() => {
             if (valueRef?.current) {
-              dispatch(addTasks(valueRef?.current?.value));
+              dispatch(addTask(valueRef?.current?.value));
             }
           }}
         />
