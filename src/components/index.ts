@@ -1,3 +1,3 @@
-export { default as TaskAddButton } from './TaskAddButton';
-export { default as TaskList } from './TaskList';
-export { default as TaskInput } from './TaskInput';
+export { default as TodoAddButton } from './TodoAddButton';
+export { default as Todos } from './Todos';
+export { default as TodoInput } from './TaskInput';

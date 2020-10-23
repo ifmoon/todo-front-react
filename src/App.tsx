@@ -1,7 +1,7 @@
 import { Layout, Typography } from 'antd';
 import React from 'react';
 
-import { TaskAddButton, TaskList } from '@/components';
+import { TodoAddButton, Todos } from '@/components';
 
 import useTaskAddModal from './hooks/useTaskAddModal';
 import {
@@ -26,10 +26,10 @@ const App = () => {
         </Title>
       </Header>
       <Content style={ContentStyle}>
-        <TaskList />
+        <Todos />
       </Content>
       <Footer style={FooterStyle}>
-        <TaskAddButton onClick={openTaskAddModal} />
+        <TodoAddButton onClick={openTaskAddModal} />
       </Footer>
     </Layout>
   );

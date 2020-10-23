@@ -2,21 +2,21 @@ import { Divider, Empty } from 'antd';
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 
-import { selectTasks } from '@/features/task';
+import { selectTodos } from '@/features/todo';
 
-import Task from './Task';
+import TodoType from './Todo';
 
-const TaskList = () => {
-  const tasks = useSelector(selectTasks);
+const Todos = () => {
+  const todos = useSelector(selectTodos);
 
   return (
     <>
-      {tasks.length > 0 ? (
+      {todos.length > 0 ? (
         <>
-          {tasks.map((task, index) => (
-            <Fragment key={task.id}>
+          {todos.map((todo, index) => (
+            <Fragment key={todo.id}>
               {index === 0 && <Divider />}
-              <Task task={task} />
+              <TodoType todo={todo} />
               <Divider />
             </Fragment>
           ))}
@@ -28,4 +28,4 @@ const TaskList = () => {
   );
 };
 
-export default TaskList;
+export default Todos;

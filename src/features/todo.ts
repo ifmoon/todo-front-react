@@ -2,26 +2,26 @@ import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from '@/features';
 
-export type Todo = {
+export type TodoType = {
   id: string;
   text: string;
   isCompleted: boolean;
 };
 
-const name = 'tasks';
-export const initialState: Todo[] = [];
+const name = 'todo';
+export const initialState: TodoType[] = [];
 
 const slice = createSlice({
   name,
   initialState,
   reducers: {
-    addTask: (state, { payload }: PayloadAction<string>) => {
+    addTodo: (state, { payload }: PayloadAction<string>) => {
       state.push({ id: nanoid(), text: payload, isCompleted: false });
     },
-    deleteTask: (state, { payload }: PayloadAction<string>) => {
+    deleteTodo: (state, { payload }: PayloadAction<string>) => {
       return state.filter(task => task.id !== payload);
     },
-    toggleTaskCompleted: (state, { payload }: PayloadAction<string>) => {
+    toggleTodoCompleted: (state, { payload }: PayloadAction<string>) => {
       return state.map(task =>
         task.id === payload
           ? { ...task, isCompleted: !task.isCompleted }
@@ -31,7 +31,7 @@ const slice = createSlice({
   },
 });
 
-export const { addTask, deleteTask, toggleTaskCompleted } = slice.actions;
-export const selectTasks = (state: RootState) => state.task;
+export const { addTodo, deleteTodo, toggleTodoCompleted } = slice.actions;
+export const selectTodos = (state: RootState) => state.todo;
 
 export default slice.reducer;

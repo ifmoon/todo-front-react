@@ -1,15 +1,15 @@
 import { Typography } from 'antd';
 import React from 'react';
 
-import { Todo } from '@/features/task';
+import { TodoType } from '@/features/todo';
 
 const { Text } = Typography;
 
-const TaskText = ({
+const TodoText = ({
   isCompleted,
   text,
-}: Pick<Todo, 'isCompleted' | 'text'>) => {
+}: Pick<TodoType, 'isCompleted' | 'text'>) => {
   return <Text delete={isCompleted}>{text}</Text>;
 };
 
-export default TaskText;
+export default TodoText;

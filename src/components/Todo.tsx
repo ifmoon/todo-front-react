@@ -2,32 +2,32 @@ import { Col, Row } from 'antd';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { deleteTask, Todo, toggleTaskCompleted } from '@/features/task';
+import { deleteTodo, TodoType, toggleTodoCompleted } from '@/features/todo';
 
 import TaskCompleteButton from './TaskCompleteButton';
 import TaskDeleteButton from './TaskDeleteButton';
-import TaskText from './TaskText';
+import TodoText from './TodoText';
 
-const Task = ({ task }: { task: Todo }) => {
+const Todo = ({ todo: { id, isCompleted, text } }: { todo: TodoType }) => {
   const dispatch = useDispatch();
 
   return (
     <Row justify="space-around" align="middle">
       <Col span={2} offset={1}>
         <TaskCompleteButton
-          isCompleted={task.isCompleted}
+          isCompleted={isCompleted}
           onClick={() => {
-            dispatch(toggleTaskCompleted(task.id));
+            dispatch(toggleTodoCompleted(id));
           }}
         />
       </Col>
       <Col span={18}>
-        <TaskText text={task.text} isCompleted={task.isCompleted} />
+        <TodoText text={text} isCompleted={isCompleted} />
       </Col>
       <Col span={2} offset={1}>
         <TaskDeleteButton
           onClick={() => {
-            dispatch(deleteTask(task.id));
+            dispatch(deleteTodo(id));
           }}
         />
       </Col>
@@ -35,4 +35,4 @@ const Task = ({ task }: { task: Todo }) => {
   );
 };
 
-export default React.memo(Task);
+export default React.memo(Todo);

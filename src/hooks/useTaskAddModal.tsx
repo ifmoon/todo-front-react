@@ -3,22 +3,22 @@ import { ModalFuncProps } from 'antd/lib/modal';
 import React, { useCallback, useMemo, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
-import TaskInput, { TaskInputRef } from '@/components/TaskInput';
-import { addTask } from '@/features/task';
+import TodoInput, { TodoInputRef } from '@/components/TaskInput';
+import { addTodo } from '@/features/todo';
 
 const useTaskAddModal = () => {
-  const valueRef = useRef<TaskInputRef>(null);
+  const valueRef = useRef<TodoInputRef>(null);
   const dispatch = useDispatch();
 
   const handleOk = useCallback(() => {
     if (!valueRef.current) return;
-    dispatch(addTask(valueRef.current?.value));
+    dispatch(addTodo(valueRef.current?.value));
   }, [dispatch]);
 
   const config: ModalFuncProps = useMemo(
     () => ({
       title: '할 일 추가',
-      content: <TaskInput ref={valueRef} />,
+      content: <TodoInput ref={valueRef} />,
       onOk: handleOk,
       maskClosable: true,
       icon: null,

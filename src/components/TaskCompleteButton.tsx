@@ -2,12 +2,12 @@ import { CheckOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 
-import { Todo } from '@/features/task';
+import { TodoType } from '@/features/todo';
 
 const TaskCompleteButton = ({
   isCompleted,
   onClick,
-}: Pick<Todo, 'isCompleted'> & { onClick: () => void }) => {
+}: Pick<TodoType, 'isCompleted'> & { onClick: () => void }) => {
   return (
     <Button shape="circle-outline" onClick={onClick}>
       {isCompleted ? <CheckOutlined /> : ' '}
