@@ -1,54 +1,32 @@
-import { Layout, Modal, Typography } from 'antd';
-import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { Layout, Typography } from 'antd';
+import React from 'react';
 
-import { TaskAddButton, TaskList } from '@/components';
+import { TaskAddModal, TaskList } from '@/components';
 
-import TaskInput, { TaskInputRef } from './components/TaskInput';
-import { addTask } from './features/task';
+import {
+  ContentStyle,
+  FooterStyle,
+  HeaderStyle,
+  LayoutStyle,
+  TitleStyle,
+} from './styles';
 
 const { Title } = Typography;
 const { Header, Footer, Content } = Layout;
 
 const App = () => {
-  const dispatch = useDispatch();
-  const valueRef = useRef<TaskInputRef>(null);
-
   return (
-    <Layout style={{ backgroundColor: '#fff' }}>
-      <Header
-        style={{
-          position: 'fixed',
-          zIndex: 1,
-          width: '100%',
-        }}
-      >
-        <Title level={1} style={{ color: '#eee' }}>
+    <Layout style={LayoutStyle}>
+      <Header style={HeaderStyle}>
+        <Title level={1} style={TitleStyle}>
           To Do List
         </Title>
       </Header>
-      <Content style={{ margin: '64px 0px 80px 0px' }}>
+      <Content style={ContentStyle}>
         <TaskList />
       </Content>
-      <Footer
-        style={{
-          position: 'fixed',
-          zIndex: 1,
-          width: '100%',
-          left: 0,
-          bottom: 0,
-        }}
-      >
-        <TaskAddButton
-          onClick={() => {
-            if (valueRef?.current) {
-              dispatch(addTask(valueRef?.current?.value));
-            }
-          }}
-        />
-        <Modal>
-          <TaskInput ref={valueRef} />
-        </Modal>
+      <Footer style={FooterStyle}>
+        <TaskAddModal />
       </Footer>
     </Layout>
   );
