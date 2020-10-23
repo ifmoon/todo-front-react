@@ -12,28 +12,26 @@ const Task = ({ task }: { task: Todo }) => {
   const dispatch = useDispatch();
 
   return (
-    <>
-      <Row justify="space-around" align="middle">
-        <Col span={2} offset={1}>
-          <TaskCompleteButton
-            isCompleted={task.isCompleted}
-            onClick={() => {
-              dispatch(toggleTaskCompleted(task.id));
-            }}
-          />
-        </Col>
-        <Col span={18}>
-          <TaskText text={task.text} isCompleted={task.isCompleted} />
-        </Col>
-        <Col span={2} offset={1}>
-          <TaskDeleteButton
-            onClick={() => {
-              dispatch(deleteTask(task.id));
-            }}
-          />
-        </Col>
-      </Row>
-    </>
+    <Row justify="space-around" align="middle">
+      <Col span={2} offset={1}>
+        <TaskCompleteButton
+          isCompleted={task.isCompleted}
+          onClick={() => {
+            dispatch(toggleTaskCompleted(task.id));
+          }}
+        />
+      </Col>
+      <Col span={18}>
+        <TaskText text={task.text} isCompleted={task.isCompleted} />
+      </Col>
+      <Col span={2} offset={1}>
+        <TaskDeleteButton
+          onClick={() => {
+            dispatch(deleteTask(task.id));
+          }}
+        />
+      </Col>
+    </Row>
   );
 };
 
