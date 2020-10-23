@@ -25,7 +25,17 @@ describe('task reducer', () => {
     expect(state.length).toEqual(1);
     expect(state).toEqual([...initialState, dummyTask]);
   });
-  it('[toggleTaskCompleted] param으로 주어진 id를 가진 task의 isCompleted를 토글한다.', () => {
+  it('[toggleTaskCompleted] param으로 주어진 id를 가진 task의 isCompleted가 true라면 false로 바꾼다.', () => {
+    const state = taskReducer(
+      [...initialState, { ...dummyTask, isCompleted: true }],
+      toggleTaskCompleted('1'),
+    );
+    expect(state).toEqual([
+      ...initialState,
+      { ...dummyTask, isCompleted: false },
+    ]);
+  });
+  it('[toggleTaskCompleted] param으로 주어진 id를 가진 task의 isCompleted가 false라면 true로 바꾼다.', () => {
     const state = taskReducer(
       [...initialState, dummyTask],
       toggleTaskCompleted('1'),
