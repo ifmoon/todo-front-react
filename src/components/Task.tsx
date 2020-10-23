@@ -35,4 +35,4 @@ const Task = ({ task }: { task: Todo }) => {
   );
 };
 
-export default Task;
+export default React.memo(Task);
