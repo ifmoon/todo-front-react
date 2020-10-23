@@ -1,8 +1,9 @@
 import { Layout, Typography } from 'antd';
 import React from 'react';
 
-import { TaskAddModal, TaskList } from '@/components';
+import { TaskAddButton, TaskList } from '@/components';
 
+import useTaskAddModal from './hooks/useTaskAddModal';
 import {
   ContentStyle,
   FooterStyle,
@@ -15,6 +16,8 @@ const { Title } = Typography;
 const { Header, Footer, Content } = Layout;
 
 const App = () => {
+  const { openTaskAddModal } = useTaskAddModal();
+
   return (
     <Layout style={LayoutStyle}>
       <Header style={HeaderStyle}>
@@ -26,7 +29,7 @@ const App = () => {
         <TaskList />
       </Content>
       <Footer style={FooterStyle}>
-        <TaskAddModal />
+        <TaskAddButton onClick={openTaskAddModal} />
       </Footer>
     </Layout>
   );
