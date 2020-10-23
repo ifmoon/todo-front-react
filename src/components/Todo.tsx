@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import { deleteTodo, TodoType, toggleTodoCompleted } from '@/features/todo';
 
-import TaskCompleteButton from './TaskCompleteButton';
-import TaskDeleteButton from './TaskDeleteButton';
+import TodoCompleteButton from './TodoCompleteButton';
+import TodoDeleteButton from './TodoDeleteButton';
 import TodoText from './TodoText';
 
 const Todo = ({ todo: { id, isCompleted, text } }: { todo: TodoType }) => {
@@ -14,7 +14,7 @@ const Todo = ({ todo: { id, isCompleted, text } }: { todo: TodoType }) => {
   return (
     <Row justify="space-around" align="middle">
       <Col span={2} offset={1}>
-        <TaskCompleteButton
+        <TodoCompleteButton
           isCompleted={isCompleted}
           onClick={() => {
             dispatch(toggleTodoCompleted(id));
@@ -25,7 +25,7 @@ const Todo = ({ todo: { id, isCompleted, text } }: { todo: TodoType }) => {
         <TodoText text={text} isCompleted={isCompleted} />
       </Col>
       <Col span={2} offset={1}>
-        <TaskDeleteButton
+        <TodoDeleteButton
           onClick={() => {
             dispatch(deleteTodo(id));
           }}

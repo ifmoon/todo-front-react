@@ -6,7 +6,7 @@ const TaskDeleteButtonStyle = {
   color: '#a62c00',
 };
 
-const TaskDeleteButton = ({ onClick }: { onClick: () => void }) => {
+const TodoDeleteButton = ({ onClick }: { onClick: () => void }) => {
   return (
     <Button shape="circle" type="text">
       <CloseOutlined style={TaskDeleteButtonStyle} onClick={onClick} />
@@ -14,4 +14,4 @@ const TaskDeleteButton = ({ onClick }: { onClick: () => void }) => {
   );
 };
 
-export default TaskDeleteButton;
+export default TodoDeleteButton;

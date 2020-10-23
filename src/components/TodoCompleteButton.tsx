@@ -4,7 +4,7 @@ import React from 'react';
 
 import { TodoType } from '@/features/todo';
 
-const TaskCompleteButton = ({
+const TodoCompleteButton = ({
   isCompleted,
   onClick,
 }: Pick<TodoType, 'isCompleted'> & { onClick: () => void }) => {
@@ -15,4 +15,4 @@ const TaskCompleteButton = ({
   );
 };
 
-export default TaskCompleteButton;
+export default TodoCompleteButton;

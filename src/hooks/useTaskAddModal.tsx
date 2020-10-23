@@ -3,11 +3,11 @@ import { ModalFuncProps } from 'antd/lib/modal';
 import React, { useCallback, useMemo, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
-import TodoInput, { TodoInputRef } from '@/components/TaskInput';
+import Input, { InputRef } from '@/components/Input';
 import { addTodo } from '@/features/todo';
 
 const useTaskAddModal = () => {
-  const valueRef = useRef<TodoInputRef>(null);
+  const valueRef = useRef<InputRef>(null);
   const dispatch = useDispatch();
 
   const handleOk = useCallback(() => {
@@ -18,7 +18,7 @@ const useTaskAddModal = () => {
   const config: ModalFuncProps = useMemo(
     () => ({
       title: '할 일 추가',
-      content: <TodoInput ref={valueRef} />,
+      content: <Input ref={valueRef} />,
       onOk: handleOk,
       maskClosable: true,
       icon: null,
