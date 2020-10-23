@@ -5,7 +5,7 @@ export const HeaderStyle = {
   width: '100%',
 };
 export const TitleStyle = { color: '#eee' };
-export const ContentStyle = { margin: '64px 0px 80px 0px' };
+export const ContentStyle = { margin: '80px 0px 80px 0px' };
 export const FooterStyle = {
   position: 'fixed' as const,
   zIndex: 1,
