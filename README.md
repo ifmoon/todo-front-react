@@ -1,11 +1,15 @@
 # todo-front-react
 
-React todo app sample
+연습용 프로젝트.
 
-## dependencies
+
+## Dependencies
+
 - React
+- Typescript
 - Redux-toolkit
 - Antd
+
 
 ## Installation
 
