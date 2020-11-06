@@ -1,7 +1,21 @@
 # todo-front-react
 
-## dependencies
+React todo app sample
 
+## dependencies
 - React
-- test
-- Redux
+- Redux-toolkit
+- Antd
+
+## Installation
+
+```bash
+yarn
+```
+
+or
+
+```bash
+npm install
+```
+
